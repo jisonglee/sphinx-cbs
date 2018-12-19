@@ -26,4 +26,14 @@ Contents:
   :maxdepth: 3
   :caption: REST API
 
-  login
+  api/login
+  api/subscriber
+  api/billing
+
+.. toctree::
+  :maxdepth: 3
+  :caption: REST API MODEL
+
+  model/common
+  model/subscriber
+  model/billing
