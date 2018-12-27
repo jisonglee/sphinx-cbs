@@ -83,7 +83,7 @@ Search Subscriber
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
 
-  :>json object result: :ref:`API 결과<model-common-result>`
+  :>json object result: :ref:`API Result<model-common-result>`
   :>json array objects: Array of :ref:`Subscriber List<subscriber-search-list-model>`
   :>json object pagination: :ref:`Pagination Information<model-common-pagination>`
 

@@ -11,6 +11,23 @@
 	word-break: break-all;
 }
 
+p {
+	display: inline;
+}
+
+p.first {
+    font-size: 100%;
+}
+
+.wy-table-responsive {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+
 .example-code {
 	background-color: #BDBDBD;
 }

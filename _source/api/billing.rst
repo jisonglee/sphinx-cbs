@@ -54,6 +54,9 @@ Get Charge By Operation
           ]
       }
 
+  :param string operationId: Operation ID
+  :param string entityType: Select an entity, either 'subscriber' or 'customer'
+  :param long id: The unique ID of the selected entityType.
 
   :query from: Start date for the selected operation
   :query to: Due date for the selected operation
@@ -69,13 +72,8 @@ Get Charge By Operation
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
 
-  :>json object result: :ref:`API 결과<model-common-result>`
+  :>json object result: :ref:`API Result<model-common-result>`
   :>json array objects: Array of :ref:`Charge Information<model-billing-charge-info>`
-
-  :param operationId: Operation ID
-  :param entityType: Select an entity, either 'subscriber' or 'customer'
-  :param id: The unique ID of the selected entityType.
-  :type id: long
 
      |br|
 
@@ -120,6 +118,8 @@ Get Charge for New Connection
          ]
       }
 
+  :param long orderId: New Connection Order ID
+  :param long orderSeqno: The unique sequence number of Sub-order. If subscription type is bundle, then orderSeqno must be 0
 
   :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
@@ -128,13 +128,8 @@ Get Charge for New Connection
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             of request
 
-  :>json object result: :ref:`API 결과<model-common-result>`
+  :>json object result: :ref:`API Result<model-common-result>`
   :>json array objects: Array of :ref:`Charge Information<model-billing-charge-info>`
-
-  :param orderId: New Connection Order ID
-  :param orderSeqno: The unique sequence number of Sub-order. If subscription type is bundle, then orderSeqno must be 0
-  :type orderId: long
-  :type orderSeqno: long
 
     |br|
 
@@ -197,7 +192,7 @@ Get Charge for Other Payment
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
 
-  :>json object result: :ref:`API 결과<model-common-result>`
+  :>json object result: :ref:`API Result<model-common-result>`
   :>json array objects: Array of :ref:`Charge Information<model-billing-charge-info>`
   :>json object pagination: :ref:`Pagination Information<model-common-pagination>`
 
@@ -260,6 +255,9 @@ Payment
           }
       }
 
+  :param string operationId: Operation ID
+  :param string entityType: Select an entity, either 'subscriber' or 'customer'
+  :param long id: The unique ID of the selected entityType.
 
   :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
@@ -272,14 +270,7 @@ Payment
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
 
-  :>json object result: :ref:`API 결과<model-common-result>`
-
-  :param operationId: Operation ID
-  :param entityType: Select an entity, either 'subscriber' or 'customer'
-  :param id: The unique ID of the selected entityType.
-  :type id: long
-
-
+  :>json object result: :ref:`API Result<model-common-result>`
 
 
      |br|

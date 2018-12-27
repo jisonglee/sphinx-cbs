@@ -58,15 +58,15 @@ Login
   :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
 
-  :<json string user: 계정 아이디
-  :<json string password: 계정 패스워드
+  :<json string user: ID
+  :<json string password: Password
 
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
 
   :>json integer code: Result code (0:OK)
-  :>json object result: :ref:`로그인 결과<login-login-result-model>`
-  :>json string redirect: Redirect 값
+  :>json object result: :ref:`Login Result<login-login-result-model>`
+  :>json string redirect: Redirect Value
 
 .. _login-login-result-model:
 
@@ -81,13 +81,13 @@ Login
   +===========================+==========+=====+===================================+
   | token_type                | string   | M   | Token Type                        |
   +---------------------------+----------+-----+-----------------------------------+
-  | access_token              | string   | M   | Token 값                          |
+  | access_token              | string   | M   | Token Value                       |
   +---------------------------+----------+-----+-----------------------------------+
-  | access_token_expires_in   | integer  | M   | Token 만료 시간                   |
+  | access_token_expires_in   | integer  | M   | Token Expiration Time             |
   +---------------------------+----------+-----+-----------------------------------+
-  | refresh_token             | string   | M   | Refresh Token 값                  |
+  | refresh_token             | string   | M   | Refresh Token Value               |
   +---------------------------+----------+-----+-----------------------------------+
-  | refresh_token_expires_in  | integer  | M   | Refresh Token 만료 시간           |
+  | refresh_token_expires_in  | integer  | M   | Refresh Token Expiration Time     |
   +---------------------------+----------+-----+-----------------------------------+
 
      |br|
@@ -139,25 +139,7 @@ Refresh Token
                             header of request
 
   :>json integer code: Result code (0:OK)
-  :>json object result: :ref:`로그인 결과<login-refresh-token-result-model>`
-  :>json string redirect: Redirect 값
-
-.. _login-refresh-token-result-model:
-
-  **Result Model**
-
-  .. rst-class:: table-width-fix
-  .. rst-class:: table-width-full
-  .. rst-class:: text-align-justify
-
-  +---------------------------+----------+-----+-----------------------------------+
-  | Key                       | Type     | M/O | Description                       |
-  +===========================+==========+=====+===================================+
-  | code                      | integer  | M   | Result Code (0:Success)           |
-  +---------------------------+----------+-----+-----------------------------------+
-  | error                     | string   | O   | Error                             |
-  +---------------------------+----------+-----+-----------------------------------+
-  | desc                      | string   | M   | Description                       |
-  +---------------------------+----------+-----+-----------------------------------+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json string redirect: Redirect Value
 
      |br|
