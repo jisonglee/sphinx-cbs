@@ -7,6 +7,60 @@
 Billing
 ==========
 
+.. _model-billing-charge-info-cust:
+
+Charge Information for Customer
+----------------------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {
+        "charge":[
+            {
+                "pymType":"OTP",
+                "pymCd":"0015",
+                "pymCdName":"Service Saving",
+                "amount":7500,
+                "vat":0.1,
+                "chargeId":1000001433
+            }
+        ],
+        "custId":10000960,
+        "custType":"PSN"
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+----------+-----+-----------------------------------+
+| Key                       | Type     | M/O | Description                       |
++===========================+==========+=====+===================================+
+| charge                    | array    | M   | Array of :ref:`Charge Informati   |
+|                           |          |     | on<model-billing-charge-info>`    |
++---------------------------+----------+-----+-----------------------------------+
+| custId                    | string   | O   | Customer ID                       |
++---------------------------+----------+-----+-----------------------------------+
+| custType                  | string   | O   | Customer Type                     |
+|                           |          |     |                                   |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | Val | Description     |         |
+|                           |          |     | +=====+=================+         |
+|                           |          |     | | PSN | Residential     |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | GRP | Corporate,      |         |
+|                           |          |     | |     | Government      |         |
+|                           |          |     | +-----+-----------------+         |
++---------------------------+----------+-----+-----------------------------------+
+
+   |br|
+
 .. _model-billing-charge-info:
 
 Charge Information

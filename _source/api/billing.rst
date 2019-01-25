@@ -26,7 +26,7 @@ Get Charge By Operation
 
     .. sourcecode:: http
 
-      GET /api/v1/bs/charge/svcsv/subscriber/454050 HTTP/1.1
+      GET /api/v1/bs/charge/svcsv/subscriber/4000123?until=20190531 HTTP/1.1
       Accept: application/json
       Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
 
@@ -42,16 +42,20 @@ Get Charge By Operation
               "code": 0,
               "desc": "Ok"
           },
-          "objects": [
-              {
-                  "pymType": "OTP",
-                  "pymCd": "0015",
-                  "pymCdName": "Service Saving",
-                  "amount": 4000,
-                  "vat": 0.1,
-                  "chargeId": 1000002495
-              }
-          ]
+          "objects": {
+                "charge":[
+                    {
+                        "pymType":"OTP",
+                        "pymCd":"0015",
+                        "pymCdName":"Service Saving",
+                        "amount":7500,
+                        "vat":0.1,
+                        "chargeId":1000001433
+                    }
+                ],
+                "custId":10000960,
+                "custType":"PSN"
+          }
       }
 
   :param string operationId: Operation ID
@@ -73,7 +77,7 @@ Get Charge By Operation
                             header of request
 
   :>json object result: :ref:`API Result<model-common-result>`
-  :>json array objects: Array of :ref:`Charge Information<model-billing-charge-info>`
+  :>json object objects: Object of :ref:`Charge Information for Customer<model-billing-charge-info-cust>`
 
      |br|
 
@@ -90,33 +94,45 @@ Get Charge for New Connection
 
     .. sourcecode:: http
 
-      GET /api/v1/bs/charge/1215/subscriber/454050 HTTP/1.1
-      Accept: application/json
-      Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+        GET /api/v1/bs/charge/1082/842 HTTP/1.1
+        Accept: application/json
+        Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
 
   **Example response**:
 
     .. sourcecode:: http
 
-      HTTP/1.1 200 OK
-      Content-Type: application/json
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
-      {
-         "result": {
-             "code": 0,
-             "desc": "Ok"
-         },
-         "objects": [
-              {
-                    "pymType": "OTP",
-                    "pymCd": "0001",
-                    "pymCdName": "Installation Fee",
-                    "amount": 30000,
-                    "vat": 0.1,
-                    "chargeId": 1000002502
-              }
-         ]
-      }
+        {  
+            "result":{  
+                "code":0,
+                "desc":"Ok"
+            },
+            "objects":{  
+                "charge":[  
+                    {  
+                        "pymType":"OTP",
+                        "pymCd":"0001",
+                        "pymCdName":"Installation Fee",
+                        "amount":15000,
+                        "vat":0.1,
+                        "chargeId":1000001473
+                    },
+                    {  
+                        "pymType":"OTP",
+                        "pymCd":"1501",
+                        "pymCdName":"Normal Number Fee",
+                        "amount":30000,
+                        "vat":0.1,
+                        "chargeId":1000001473
+                    }
+                ],
+                "custId":4,
+                "custType":"GRP"
+            }
+        }
 
   :param long orderId: New Connection Order ID
   :param long orderSeqno: The unique sequence number of Sub-order. If subscription type is bundle, then orderSeqno must be 0
@@ -129,7 +145,7 @@ Get Charge for New Connection
                             of request
 
   :>json object result: :ref:`API Result<model-common-result>`
-  :>json array objects: Array of :ref:`Charge Information<model-billing-charge-info>`
+  :>json object objects: Object of :ref:`Charge Information for Customer<model-billing-charge-info-cust>`
 
     |br|
 
@@ -216,44 +232,57 @@ Payment
 
     .. sourcecode:: http
 
-      POST /api/v1/bs/pym/svcsv/subscriber/454050 HTTP/1.1
-      Accept: application/json
-      Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+        POST /api/v1/bs/pym/newcn/subscriber/684 HTTP/1.1
+        Accept: application/json
+        Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
 
-      {
-          "charge": [
-              {
-                  "reqAmt": 1000,
-                  "reqVat" : 100,
-                  "pymCd": "314",
-                  "chargeId" : 314,
-                  "paid": true
-              }
-          ],
-          "payment": [
-              {
-                  "pymMtd": "CSH",
-                  "amt": 5000,
-                  "bank": "A-Bank",
-                  "desc": "received by cash"
-              }
-          ],
-          "remark" : "Text"
-      }
+        {
+            "charge":[
+                {
+                    "reqAmt":15000,
+                    "reqVat":1500,
+                    "chargeId":1000001473,
+                    "pymCd":"0001",
+                    "name":"Installation Fee",
+                    "qty":1,
+                    "unitPrice":15000,
+                    "paid":true
+                },
+                {
+                    "reqAmt":30000,
+                    "reqVat":3000,
+                    "chargeId":1000001473,
+                    "pymCd":"1501",
+                    "name":"Normal Number Fee",
+                    "qty":1,
+                    "unitPrice":30000,
+                    "paid":true
+                }
+            ],
+            "payment":[
+                {
+                    "pymMtd":"CSH",
+                    "amt":49500,
+                    "desc":"None"
+                }
+            ],
+            "subsId":684,
+            "taxId":""
+        }
 
   **Example response**:
 
     .. sourcecode:: http
 
-      HTTP/1.1 200 OK
-      Content-Type: application/json
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
-      {
-          "result": {
-              "code": 0,
-              "desc": "Ok"
-          }
-      }
+        {
+            "result": {
+                "code": 0,
+                "desc": "Ok"
+            }
+        }
 
   :param string operationId: Operation ID
   :param string entityType: Select an entity, either 'subscriber' or 'customer'
@@ -265,12 +294,98 @@ Payment
 
   :<json array charge: Array of :ref:`Charge Information for Payment<model-billing-charge-info-payment>`
   :<json array payment: Array of :ref:`Payment Information<model-billing-payment-info>`
+  :<json integer subsId: Subcriber ID
+  :<json string taxId: TAX ID for Corporate
   :<json string remark: Remark
+  :<json object order: Order Information
 
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
 
   :>json object result: :ref:`API Result<model-common-result>`
 
+
+     |br|
+
+
+.. _api-rcpt:
+
+Receipt
+==========
+
+.. _get-receipt:
+
+Get Receipt
+------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:get:: /api/v1/bs/pym/rcpt/(long:chargeId)
+
+  **Example request**:
+
+    .. sourcecode:: http
+
+        GET /api/v1/bs/pym/rcpt/1000001473?lang=mn HTTP/1.1
+        Accept: application/json
+        Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "result":{
+                "code":0,
+                "desc":"Ok"
+            },
+            "objects":[
+                {
+                    "VAT":"4,500.00",
+                    "BUYER_TAX_ID":"",
+                    "TRX_NO":"1000001473",
+                    "BARIMT_AMT":".00",
+                    "PAID_AMT":"49,500.00",
+                    "TEMPLATE":"1101",
+                    "QR":"3351708349654546105....",
+                    "LOTTERY":"JO DEMO7611",
+                    "TRX_DTTM":"2019-01-25 17:51:47",
+                    "OPERATOR_ID":"testuser",
+                    "TAX_NO":"000000000038001190114976657137930"
+                },{
+                    "ITEM_NO":"1000011021",
+                    "ITEM_NAME":"Installation Fee",
+                    "PRICE":"15000",
+                    "DESC":"",
+                    "DISCOUNT":"0",
+                    "PAYMENT":"16500",
+                    "PIECE":"1"
+                },{
+                    "ITEM_NO":"1000011022",
+                    "ITEM_NAME":"Normal Number Fee",
+                    "PRICE":"30000",
+                    "DESC":"",
+                    "DISCOUNT":"0",
+                    "PAYMENT":"33000",
+                    "PIECE":"1"
+                }
+            ]
+        }
+
+
+  :param long chargeId: The unique ID for Charge
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json array objects: Array of Receipt
 
      |br|
