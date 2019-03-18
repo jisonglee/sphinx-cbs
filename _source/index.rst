@@ -15,7 +15,7 @@ CBS Documentation
 +---------+--------------------+
 | Version | Last modified date |
 +=========+====================+
-| 1.0     | 2018/12/27         |
+| 1.0     | 2019/03/18         |
 +---------+--------------------+
 
 |br|
@@ -27,13 +27,15 @@ Contents:
   :caption: REST API
 
   api/login
-  api/subscriber
   api/billing
+  api/resource
+  api/subscriber
 
 .. toctree::
   :maxdepth: 3
   :caption: REST API MODEL
 
   model/common
-  model/subscriber
   model/billing
+  model/resource
+  model/subscriber
