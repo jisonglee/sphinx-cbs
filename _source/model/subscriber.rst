@@ -7,6 +7,229 @@
 Subscriber
 ==========
 
+.. _model-address-entity:
+
+Address
+------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {
+        "addrId": 582,
+        "addrType": "2",
+        "addNum": 10783,
+        "custId": 10000641,
+        "doorNumber": "1",
+        "zipCode": "18190",
+        "standardAddress": "УБ СОНГИНОХАЙРХАН 1 БАЯНГОЛЫН АМ-5 АМИНЫ ОРОН СУУЦ 43/3",
+        "postAddress": "abc",
+        "additionalInfo": "for test"
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+----------+-----+-----------------------------------+
+| Key                       | Type     | M/O | Description                       |
++===========================+==========+=====+===================================+
+| addrId                    | integer  | O   | Address ID                        |
++---------------------------+----------+-----+-----------------------------------+
+| addrType                  | string   | O   | Address Type                      |
+|                           |          |     |                                   |
+|                           |          |     | +-----+-----------------------+   |
+|                           |          |     | | Val | Description           |   |
+|                           |          |     | +=====+=======================+   |
+|                           |          |     | | 1   | Customer Address      |   |
+|                           |          |     | +-----+-----------------------+   |
+|                           |          |     | | 2   | Installation Address  |   |
+|                           |          |     | +-----+-----------------------+   |
+|                           |          |     |                                   |
++---------------------------+----------+-----+-----------------------------------+
+| addNum                    | string   | M   | Address Number                    |
++---------------------------+----------+-----+-----------------------------------+
+| custId                    | integer  | O   | Customer ID                       |
++---------------------------+----------+-----+-----------------------------------+
+| doorNumber                | string   | O   | Door Number                       |
++---------------------------+----------+-----+-----------------------------------+
+| zipCode                   | string   | O   | ZIP Code                          |
++---------------------------+----------+-----+-----------------------------------+
+| standardAddress           | string   | O   | Standard Address                  |
++---------------------------+----------+-----+-----------------------------------+
+| postAddress               | string   | O   | Post Address                      |
++---------------------------+----------+-----+-----------------------------------+
+| additionalInfo            | string   | O   | Additional Information            |
++---------------------------+----------+-----+-----------------------------------+
+
+   |br|
+
+.. _model-address-extension:
+
+Address (Extension)
+--------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {
+        "addrId": 582,
+        "addrType": "2",
+        "addNum": 10783,
+        "custId": 10000641,
+        "doorNumber": "1",
+        "zipCode": "18190",
+        "standardAddress": "УБ СОНГИНОХАЙРХАН 1 БАЯНГОЛЫН АМ-5 АМИНЫ ОРОН СУУЦ 43/3",
+        "postAddress": "abc",
+        "additionalInfo": "for test",
+        "fullAddress": "УБ СОНГИНОХАЙРХАН 1 БАЯНГОЛЫН АМ-5 АМИНЫ ОРОН СУУЦ 43/3 abc",
+        "correspBranch": "100",
+        "correspExchange": "200"
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+----------+-----+-----------------------------------+
+| Key                       | Type     | M/O | Description                       |
++===========================+==========+=====+===================================+
+| addrId                    | integer  | O   | Address ID                        |
++---------------------------+----------+-----+-----------------------------------+
+| addrType                  | string   | O   | Address Type                      |
+|                           |          |     |                                   |
+|                           |          |     | +-----+-----------------------+   |
+|                           |          |     | | Val | Description           |   |
+|                           |          |     | +=====+=======================+   |
+|                           |          |     | | 1   | Customer Address      |   |
+|                           |          |     | +-----+-----------------------+   |
+|                           |          |     | | 2   | Installation Address  |   |
+|                           |          |     | +-----+-----------------------+   |
+|                           |          |     |                                   |
++---------------------------+----------+-----+-----------------------------------+
+| addNum                    | string   | M   | Address Number                    |
++---------------------------+----------+-----+-----------------------------------+
+| custId                    | integer  | O   | Customer ID                       |
++---------------------------+----------+-----+-----------------------------------+
+| doorNumber                | string   | O   | Door Number                       |
++---------------------------+----------+-----+-----------------------------------+
+| zipCode                   | string   | O   | ZIP Code                          |
++---------------------------+----------+-----+-----------------------------------+
+| standardAddress           | string   | O   | Standard Address                  |
++---------------------------+----------+-----+-----------------------------------+
+| postAddress               | string   | O   | Post Address                      |
++---------------------------+----------+-----+-----------------------------------+
+| additionalInfo            | string   | O   | Additional Information            |
++---------------------------+----------+-----+-----------------------------------+
+| fullAddress               | string   | O   | Full Address |br|                 |
+|                           |          |     | (Standard Address, Post Address)  |
++---------------------------+----------+-----+-----------------------------------+
+| correspBranch             | string   | O   | Corresponding Branch              |
++---------------------------+----------+-----+-----------------------------------+
+| correspExchange           | string   | O   | Corresponding Exchange            |
++---------------------------+----------+-----+-----------------------------------+
+
+   |br|
+
+.. _model-customer-search:
+
+Customer Search
+------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {
+        "custId": 10001363,
+        "custName": "Х Х НАНСАА",
+        "contactNum1": "88445544",
+        "custType": "PSN",
+        "custLevel": "BAS",
+        "personalId": "ДЮ88112864",
+        "userId": "70609005",
+        "address": "УБ ЧИНГЭЛТЭЙ 1 БАГА ТОЙРУУ-3 ҮНДЭСНИЙ ҮНЭТ ЦААСНЫ БАЙР",
+        "status": "A"
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+----------+-----+-----------------------------------+
+| Key                       | Type     | M/O | Description                       |
++===========================+==========+=====+===================================+
+| custId                    | integer  | M   | Customer ID                       |
++---------------------------+----------+-----+-----------------------------------+
+| custName                  | string   | O   | Customer Name                     |
++---------------------------+----------+-----+-----------------------------------+
+| contactNum1               | string   | O   | Contact Number 1                  |
++---------------------------+----------+-----+-----------------------------------+
+| custType                  | string   | O   | Customer Type                     |
+|                           |          |     |                                   |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | Val | Description     |         |
+|                           |          |     | +=====+=================+         |
+|                           |          |     | | PSN | Residential     |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | GRP | Corporate       |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     |                                   |
++---------------------------+----------+-----+-----------------------------------+
+| custLevel                 | string   | O   | Customer Level                    |
+|                           |          |     |                                   |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | Val | Description     |         |
+|                           |          |     | +=====+=================+         |
+|                           |          |     | | BAS | Basic           |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | VIP | VIP             |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | LOY | Loyalty         |         |
+|                           |          |     | +-----+-----------------+         |
++---------------------------+----------+-----+-----------------------------------+
+| personalId                | string   | O   | Personal ID                       |
++---------------------------+----------+-----+-----------------------------------+
+| taxId                     | string   | O   | TAX ID                            |
++---------------------------+----------+-----+-----------------------------------+
+| userId                    | string   | O   | User ID                           |
++---------------------------+----------+-----+-----------------------------------+
+| address                   | string   | O   | Customer Addres |br|              |
+|                           |          |     | (Standard Address, Post Address)  |
++---------------------------+----------+-----+-----------------------------------+
+| status                    | string   | O   | Subscriber Status                 |
+|                           |          |     |                                   |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | Val | Description     |         |
+|                           |          |     | +=====+=================+         |
+|                           |          |     | | A   | Active          |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | C   | Canceled        |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | R   | Reserved        |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | S   | Suspended       |         |
+|                           |          |     | +-----+-----------------+         |
+|                           |          |     | | T   | Temporary       |         |
+|                           |          |     | +-----+-----------------+         |
++---------------------------+----------+-----+-----------------------------------+
+
+   |br|
+
 .. _model-subscriber-entity:
 
 Subscriber
@@ -139,5 +362,265 @@ Subscriber
 +---------------------------+----------+-----+-----------------------------------+
 | updatedAt                 | string   | O   | Last Updated Date                 |
 +---------------------------+----------+-----+-----------------------------------+
+
+   |br|
+
+.. _model-subscriber-search:
+
+Subscriber Search
+-------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {  
+        "subs":{  
+            "subsId":4001444,
+            "subsType":"B",
+            "svcDomain":1,
+            "subDomain":100,
+            "custId":10001364,
+            "userId":"B4001444",
+            "billAcntId":1000190201,
+            "billType":"PST",
+            "status":"A",
+            "aceno":1000195407,
+            "createdAt":"2019-03-04T14:11:05+0800",
+            "updatedAt":"2019-03-04T14:11:09+0800",
+            "prodName":"test_bundle"
+        },
+        "cnvgId":100000521
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
+  +---------------------------+----------+-----+------------------------------------------------------------+
+  | Key                       | Type     | M/O | Description                                                |
+  +===========================+==========+=====+============================================================+
+  | subs                      | object   | M   | :ref:`Subscriber<model-subscriber-entity>`                 |
+  +---------------------------+----------+-----+------------------------------------------------------------+
+  | cnvgId                    | integer  | O   | Convergence ID |br|                                        |
+  |                           |          |     | Only use for a subscriber whose service domain is 'Bundle' |
+  +---------------------------+----------+-----+------------------------------------------------------------+
+  | upperId                   | integer  | O   | Convergence ID |br|                                        |
+  |                           |          |     | Only use for a subscriber included in the bundle           |
+  +---------------------------+----------+-----+------------------------------------------------------------+
+
+   |br|
+
+.. _model-subscription-product:
+
+Subscription Product
+---------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {  
+        "subsProdId":189021,
+        "subsId":4001742,
+        "svcDomain":5,
+        "subDomain":501,
+        "prodName":"UB NGN Personal - 3500",
+        "prodCd":"ub_ngn_p_3500",
+        "prodKdCd":"MAN",
+        "status":"A",
+        "monthlyFee":3500,
+        "thresholdYn":"Y",
+        "svcStrtAt":"2019-03-25T15:42:13+0800",
+        "svcEndAt":"9999-12-31T23:59:59+0800",
+        "thresholdInfo":[  
+            {  
+                "subsProdId":189021,
+                "subsThresholdId":1842,
+                "depositId":"665217",
+                "threshold":200000,
+                "thresholdSttsCd":"A",
+                "subsId":4001742
+            },
+            {  
+                "subsProdId":189021,
+                "subsThresholdId":1841,
+                "depositId":"666154",
+                "threshold":200000,
+                "thresholdSttsCd":"A",
+                "subsId":4001742
+            }
+        ],
+        "optionalInfo":{  
+            "icnc_tech_box":"33",
+            "icnc_tech_branch":"2"
+        }
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+-----------+-----+---------------------------------------+
+| Key                       | Type      | M/O | Description                           |
++===========================+===========+=====+=======================================+
+| subsProdId                | integer   | O   | Subscription Product ID               |
++---------------------------+-----------+-----+---------------------------------------+
+| subsId                    | integer   | O   | Subscriber ID                         |
++---------------------------+-----------+-----+---------------------------------------+
+| svcDomain                 | integer   | O   | Service Domain                        |
+|                           |           |     |                                       |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | Val | Description     |             |
+|                           |           |     | +=====+=================+             |
+|                           |           |     | | 1   | Bundle          |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 3   | Cable TV        |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 4   | Internet        |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 5   | Telephony       |             |
+|                           |           |     | +-----+-----------------+             |
++---------------------------+-----------+-----+---------------------------------------+
+| subDomain                 | integer   | O   | Service SubDomain                     |
+|                           |           |     |                                       |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | Val | Description     |             |
+|                           |           |     | +=====+=================+             |
+|                           |           |     | | 100 | Bundle          |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 301 | Cable TV        |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 401 | ADSL            |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 402 | DDN             |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 501 | NGN             |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | 502 | ISDN            |             |
+|                           |           |     | +-----+-----------------+             |
++---------------------------+-----------+-----+---------------------------------------+
+| prodName                  | string    | O   | Product Name                          |
++---------------------------+-----------+-----+---------------------------------------+
+| prodCd                    | string    | O   | Product Code                          |
++---------------------------+-----------+-----+---------------------------------------+
+| prodKdCd                  | string    | O   | Product Type                          |
+|                           |           |     |                                       |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | Val | Description     |             |
+|                           |           |     | +=====+=================+             |
+|                           |           |     | | MAN | Main            |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | VAS | VAS             |             |
+|                           |           |     | +-----+-----------------+             |
++---------------------------+-----------+-----+---------------------------------------+
+| status                    | string    | O   | Subscription Product Status           |
+|                           |           |     |                                       |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | Val | Description     |             |
+|                           |           |     | +=====+=================+             |
+|                           |           |     | | A   | Active          |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | C   | Canceled        |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | T   | Temporary       |             |
+|                           |           |     | +-----+-----------------+             |
++---------------------------+-----------+-----+---------------------------------------+
+| monthlyFee                | number    | O   | Monthly Fee                           |
++---------------------------+-----------+-----+---------------------------------------+
+| thresholdYn               | string    | O   | Use Threshold or Not |br|             |
+|                           |           |     | (Not currently used)                  |
+|                           |           |     |                                       |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | Val | Description     |             |
+|                           |           |     | +=====+=================+             |
+|                           |           |     | | Y   | Use             |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | N   | No Use          |             |
+|                           |           |     | +-----+-----------------+             |
++---------------------------+-----------+-----+---------------------------------------+
+| svcStrtAt                 | date-time | O   | Service Start Date                    |
++---------------------------+-----------+-----+---------------------------------------+
+| svcEndAt                  | date-time | O   | Service End Date                      |
++---------------------------+-----------+-----+---------------------------------------+
+| thresholdInfo             | array     | O   | Array of :ref:`Subscripiton Threshold |
+|                           |           |     | <model-subscription-threshold>`       |
++---------------------------+-----------+-----+---------------------------------------+
+| optionalInfo              | object    | O   | Optional Information |br| |br|        |
+|                           |           |     | If product type is *Main*, then it    |
+|                           |           |     | returns **technical data** which      |
+|                           |           |     | staff entered in the *New Connection* |
+|                           |           |     | order. |br|                           |
+|                           |           |     | If product type is *VAS*, then it     |
+|                           |           |     | returns **optional information**      |
+|                           |           |     | which staff entered in the            |
+|                           |           |     | *Add VAS* pop-up window.              |
++---------------------------+-----------+-----+---------------------------------------+
+| depositInfo               | array     | O   | Array of :ref:`Deposit Threshold      |
+|                           |           |     | <model-deposity-entity>` |br|         |
+|                           |           |     | Only Use for New Subscription         |
++---------------------------+-----------+-----+---------------------------------------+
+
+   |br|
+
+.. _model-subscription-threshold:
+
+Subscription Threshold
+------------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {  
+        "subsProdId":189021,
+        "subsThresholdId":1842,
+        "depositId":"665217",
+        "threshold":200000,
+        "thresholdSttsCd":"A",
+        "subsId":4001742
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+-----------+-----+---------------------------------------+
+| Key                       | Type      | M/O | Description                           |
++===========================+===========+=====+=======================================+
+| subsProdId                | integer   | O   | Subscription Product ID               |
++---------------------------+-----------+-----+---------------------------------------+
+| subsThresholdId           | integer   | O   | Subscription Threshold ID             |
++---------------------------+-----------+-----+---------------------------------------+
+| depositId                 | string    | M   | Deposit ID                            |
++---------------------------+-----------+-----+---------------------------------------+
+| threshold                 | number    | M   | Threshold Amount                      |
++---------------------------+-----------+-----+---------------------------------------+
+| thresholdSttsCd           | string    | O   | Subscription Threshold Status         |
+|                           |           |     |                                       |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | Val | Description     |             |
+|                           |           |     | +=====+=================+             |
+|                           |           |     | | A   | Active          |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | C   | Canceled        |             |
+|                           |           |     | +-----+-----------------+             |
+|                           |           |     | | T   | Temporary       |             |
+|                           |           |     | +-----+-----------------+             |
++---------------------------+-----------+-----+---------------------------------------+
+| subsId                    | integer   | O   | Subscriber ID                         |
++---------------------------+-----------+-----+---------------------------------------+
 
    |br|

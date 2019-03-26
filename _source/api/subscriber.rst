@@ -10,8 +10,210 @@ Subscriber
 
 .. contents:: Table of Contents
 
+Address
+===========
+
+.. _address-get:
+
+Get Address
+------------------
+
+.. rst-class:: text-align-justify
+
+.. http:get:: /api/v1/subs/address/(long:addrId)
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    GET /api/v1/subs/address/582 HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result": {
+          "code": 0,
+          "desc": "Ok"
+      },
+      "objects": [
+          {
+              "addrId": 582,
+              "addrType": "2",
+              "addNum": 10783,
+              "custId": 10000641,
+              "doorNumber": "1",
+              "zipCode": "18190",
+              "standardAddress": "УБ СОНГИНОХАЙРХАН 1 БАЯНГОЛЫН АМ-5 АМИНЫ ОРОН СУУЦ 43/3",
+              "postAddress": "abc",
+              "additionalInfo": "for test"
+          }
+      ]
+    } 
+
+
+  :param long addrId: Address ID
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json array objects: Array of :ref:`Addresss<model-address-entity>`
+
+     |br|
+
+.. _address-get-extension:
+
+Get Address (Extension)
+----------------------------
+
+.. rst-class:: text-align-justify
+
+It provides additional information related to the address as well as basic address information.
+
+|br|
+|br|
+
+.. http:get:: /api/v1/subs/address/(long:addrId)/extension
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    GET /api/v1/subs/address/582/extension HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result": {
+          "code": 0,
+          "desc": "Ok"
+      },
+      "objects": [
+          {
+              "addrId": 582,
+              "addrType": "2",
+              "addNum": 10783,
+              "custId": 10000641,
+              "doorNumber": "1",
+              "zipCode": "18190",
+              "standardAddress": "УБ СОНГИНОХАЙРХАН 1 БАЯНГОЛЫН АМ-5 АМИНЫ ОРОН СУУЦ 43/3",
+              "postAddress": "abc",
+              "additionalInfo": "for test",
+              "fullAddress": "УБ СОНГИНОХАЙРХАН 1 БАЯНГОЛЫН АМ-5 АМИНЫ ОРОН СУУЦ 43/3 abc",
+              "correspBranch": "100",
+              "correspExchange": "200"
+          }
+      ]
+    } 
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json array objects: Array of :ref:`Address (Extension)<model-address-extension>`
+
+     |br|
+
+Customer
+===========
+
+.. _customer-search:
+
+Search Customer
+------------------
+
+.. rst-class:: text-align-justify
+
+.. http:get:: /api/v1/subs/customer
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    GET /api/v1/subs/customer?userId=70609005&incTerm=false HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result": {
+          "code": 0,
+          "desc": "Ok"
+      },
+      "objects": [
+          {
+              "custId": 10001363,
+              "custName": "Х Х НАНСАА",
+              "contactNum1": "88445544",
+              "custType": "PSN",
+              "custLevel": "BAS",
+              "personalId": "ДЮ88112864",
+              "userId": "70609005",
+              "address": "УБ ЧИНГЭЛТЭЙ 1 БАГА ТОЙРУУ-3 ҮНДЭСНИЙ ҮНЭТ ЦААСНЫ БАЙР",
+              "status": "A"
+          }
+      ],
+      "pagination": {
+          "page": 1,
+          "nitem": 10
+      }
+    } 
+
+  :query addrNum: Address Number
+  :query custId: Customer ID
+  :query custType: Customer Type. ex) Residentail = PSN, etc.
+  :query custName: Customer Name; *partial match allowed*
+  :query contactNum1: Contact Number 1
+  :query filter: Data that matches any of these; Customer ID, Customer Name *(partial match)*, Contact Number 1, Subscriber ID *(partial match)* or User ID *(partial match)*
+  :query incTerm: Include terminated subscriber or not. Default value is **false**
+  :query personalId: Personal ID; *partial match allowed*
+  :query subsId: Subscriber ID
+  :query taxId: TAX ID; *partial match allowed*
+  :query userId: User ID; *partial match allowed*
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json array objects: Array of :ref:`Customer Search<model-customer-search>`
+  :>json object pagination: :ref:`Pagination Information<model-common-pagination>`
+
+     |br|
+
 Subscriber
-==========
+===========
 
 .. _subscriber-search:
 
@@ -84,27 +286,90 @@ Search Subscriber
                             header of request
 
   :>json object result: :ref:`API Result<model-common-result>`
-  :>json array objects: Array of :ref:`Subscriber List<subscriber-search-list-model>`
+  :>json array objects: Array of :ref:`Subscriber Search<model-subscriber-search>`
   :>json object pagination: :ref:`Pagination Information<model-common-pagination>`
 
-.. _subscriber-search-list-model:
+     |br|
 
-  **Subscriber List Model**
+.. _subscriber-product-get:
 
-  .. rst-class:: table-width-fix
-  .. rst-class:: table-width-full
-  .. rst-class:: text-align-justify
+Get Subscription Product
+--------------------------
 
-  +---------------------------+----------+-----+------------------------------------------------------------+
-  | Key                       | Type     | M/O | Description                                                |
-  +===========================+==========+=====+============================================================+
-  | subs                      | object   | M   | :ref:`Subscriber Information<model-subscriber-entity>`     |
-  +---------------------------+----------+-----+------------------------------------------------------------+
-  | cnvgId                    | integer  | O   | Convergence ID |br|                                        |
-  |                           |          |     | Only use for a subscriber whose service domain is 'Bundle' |
-  +---------------------------+----------+-----+------------------------------------------------------------+
-  | upperId                   | integer  | O   | Convergence ID |br|                                        |
-  |                           |          |     | Only use for a subscriber included in the bundle           |
-  +---------------------------+----------+-----+------------------------------------------------------------+
+.. rst-class:: text-align-justify
+
+.. http:get:: /api/v1/subs/subscriber/(long:subsId)/product
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    GET /api/v1/subs/subscriber/4001742/product HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {  
+      "result":{  
+          "code":0,
+          "desc":"Ok"
+      },
+      "objects":[  
+          {  
+              "subsProdId":189021,
+              "subsId":4001742,
+              "svcDomain":5,
+              "subDomain":501,
+              "prodName":"UB NGN Personal - 3500",
+              "prodCd":"ub_ngn_p_3500",
+              "prodKdCd":"MAN",
+              "status":"A",
+              "monthlyFee":3500,
+              "thresholdYn":"Y",
+              "svcStrtAt":"2019-03-25T15:42:13+0800",
+              "svcEndAt":"9999-12-31T23:59:59+0800",
+              "thresholdInfo":[  
+                  {  
+                      "subsProdId":189021,
+                      "subsThresholdId":1842,
+                      "depositId":"665217",
+                      "threshold":200000,
+                      "thresholdSttsCd":"A",
+                      "subsId":4001742
+                  },
+                  {  
+                      "subsProdId":189021,
+                      "subsThresholdId":1841,
+                      "depositId":"666154",
+                      "threshold":200000,
+                      "thresholdSttsCd":"A",
+                      "subsId":4001742
+                  }
+              ],
+              "optionalInfo":{  
+                  "icnc_tech_box":"33",
+                  "icnc_tech_branch":"2"
+              }
+          }
+      ]
+    }
+
+  :param long subsId: Subscriber ID
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json array objects: Array of :ref:`Subscription Product<model-subscription-product>`
 
      |br|

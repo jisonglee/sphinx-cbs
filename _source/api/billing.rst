@@ -308,6 +308,76 @@ Payment
      |br|
 
 
+.. _payment-get-hist:
+
+Get Payment History
+------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:get:: /api/v1/bs/pym/hist/subscriber/(long:subsId)
+
+  **Example request**:
+
+    .. sourcecode:: http
+
+        GET /api/v1/bs/pym/hist/subscriber/4001742?from=20190226&until=20190326 HTTP/1.1
+        Accept: application/json
+        Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "result": {
+                "code": 0,
+                "desc": "Ok"
+            },
+            "objects": [
+                {
+                    "pymSeqno": 1000002780,
+                    "paidAt": "2019-03-25T15:43:35+0800",
+                    "subsId": 4001742,
+                    "receiveType": "Cash",
+                    "paidAmt": 33000,
+                    "operatorId": "MTUB007040",
+                    "description": "None",
+                    "taxResult": "S",
+                    "pymSttsCd": "Y"
+                }
+            ],
+            "pagination": {
+                "page": 1,
+                "nitem": 10
+            }
+        }
+
+  :param long subsId: Subscriber ID
+
+  :query from: Start date
+  :query to: Due date
+  :query nitem: Number of items in a page. default is 10
+  :query page: Current page number. default is 1
+  :query total: Return total number of items
+  :query all: No pagination. Return all items
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json array objects: Array of :ref:`Payment History<model-billing-payment-hist>`
+  :>json object pagination: :ref:`Pagination Information<model-common-pagination>`
+
+     |br|
+
 .. _api-rcpt:
 
 Receipt

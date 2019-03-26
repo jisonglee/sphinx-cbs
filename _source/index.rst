@@ -37,5 +37,6 @@ Contents:
 
   model/common
   model/billing
+  model/product
   model/resource
   model/subscriber

@@ -127,8 +127,6 @@ Refresh Token
       }
     }
 
-
-
   :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
   :reqheader Authorization: Auth token to authenticate
