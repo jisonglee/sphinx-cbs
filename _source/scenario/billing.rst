@@ -18,7 +18,7 @@ Payment
 Invoice Payment
 -----------------
 
-This topic shows how to make invoice.
+This topic shows how to pay invoice.
 |br| 
 |br|
 
