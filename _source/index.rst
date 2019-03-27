@@ -43,7 +43,7 @@ Contents:
   model/subscriber
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
   :caption: REST API SCENARIO
 
   scenario/billing
