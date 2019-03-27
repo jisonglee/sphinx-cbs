@@ -15,7 +15,7 @@ CBS Documentation
 +---------+--------------------+
 | Version | Last modified date |
 +=========+====================+
-| 1.0     | 2019/03/18         |
+| 1.0     | 2019/03/26         |
 +---------+--------------------+
 
 |br|
@@ -28,6 +28,7 @@ Contents:
 
   api/login
   api/billing
+  api/product
   api/resource
   api/subscriber
 
