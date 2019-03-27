@@ -156,6 +156,61 @@ Charge Information for Payment
 
   |br|
 
+.. _model-billing-charge-hist:
+
+Charge History
+-------------------------------------
+
+.. rst-class:: text-align-justify
+
+**Example**:
+
+.. code-block:: json
+
+    {
+        "chargedMonth": "201903",
+        "chargeId": 1000002568,
+        "chargedAmt": 248.38,
+        "positiveAdj": 0,
+        "negativeAdj": 0,
+        "total": 248.38,
+        "receivedAmt": 0,
+        "overpym": 0,
+        "unpaidAmt": 248.38
+    }
+
+**Definition**
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++---------------------------+-----------+-----+-----------------------------------+
+| Key                       | Type      | M/O | Description                       |
++===========================+===========+=====+===================================+
+| chargedMonth              | string    | M   | Charged Date. Format is YYYYMM    |
++---------------------------+-----------+-----+-----------------------------------+
+| chargeId                  | integer   | M   | Charge ID                         |
++---------------------------+-----------+-----+-----------------------------------+
+| chargedAmt                | double    | M   | Charged Amount                    |
++---------------------------+-----------+-----+-----------------------------------+
+| positiveAdj               | double    | M   |                                   |
++---------------------------+-----------+-----+-----------------------------------+
+| negativeAdj               | double    | M   |                                   |
++---------------------------+-----------+-----+-----------------------------------+
+| total                     | double    | M   | Total Amount                      |
++---------------------------+-----------+-----+-----------------------------------+
+| receivedAmt               | double    | M   | Received Amount                   |
++---------------------------+-----------+-----+-----------------------------------+
+| overpym                   | double    | M   | Over Payment Amount               |
++---------------------------+-----------+-----+-----------------------------------+
+| unpaidAmt                 | double    | M   | Unpaid Amount                     |
++---------------------------+-----------+-----+-----------------------------------+
+| rtnMsg                    | string    | O   | Message                           |
++---------------------------+-----------+-----+-----------------------------------+
+
+  |br|
+
 .. _model-billing-payment-info:
 
 Payment Information

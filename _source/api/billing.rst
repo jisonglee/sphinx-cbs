@@ -68,6 +68,9 @@ Get Charge By Operation
   :query refund: Refund Charge ID
   :query orderId: Order ID
   :query orderSeqno: The unique sequence number of Sub-order
+  :query isFamily: Family member or not
+  :query chargeId: Charge ID
+  :query chargedMonth: Charged Date. YYYYMM.
 
   :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
@@ -213,6 +216,75 @@ Get Charge for Other Payment
   :>json object pagination: :ref:`Pagination Information<model-common-pagination>`
 
   |br|
+
+.. _charge-history:
+
+Get Charge History
+------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:get:: /api/v1/bs/charge/hist/subscriber/(long:subsId)
+
+  **Example request**:
+
+    .. sourcecode:: http
+
+        GET /api/v1/bs/charge/hist/subscriber/4001439?from=20190227&until=20190327 HTTP/1.1
+        Accept: application/json
+        Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+  **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "result": {
+                "code": 0,
+                "desc": "Ok"
+            },
+            "objects": [
+                {
+                    "chargedMonth": "201903",
+                    "chargeId": 1000002568,
+                    "chargedAmt": 248.38,
+                    "positiveAdj": 0,
+                    "negativeAdj": 0,
+                    "total": 248.38,
+                    "receivedAmt": 0,
+                    "overpym": 0,
+                    "unpaidAmt": 248.38
+                }
+            ],
+            "pagination": {
+                "page": 1,
+                "nitem": 10
+            }
+        }
+
+  :param long subsId: Subscriber ID
+
+  :query from: Specify start date
+  :query until: Specify end date
+  :query nitem: Number of items in a page. default is 10
+  :query page: Current page number. default is 1
+  :query total: Return total number of items
+  :query all: No pagination. Return all items
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+  :>json object objects: Object of :ref:`Charge History<model-billing-charge-hist>`
+
+     |br|
 
 .. _api-payment:
 

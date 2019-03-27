@@ -33,7 +33,7 @@ Contents:
   api/subscriber
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 2
   :caption: REST API MODEL
 
   model/common
@@ -41,3 +41,9 @@ Contents:
   model/product
   model/resource
   model/subscriber
+
+.. toctree::
+  :maxdepth: 2
+  :caption: REST API SCENARIO
+
+  scenario/billing
