@@ -95,7 +95,7 @@ Attribute
 | operationId               | string    | O   | Operation ID                          |
 +---------------------------+-----------+-----+---------------------------------------+
 | defValue                  | string    | M   | Default Value |br| |br|               |
-|                           |           |     | If the attr_type is radio, checkbox,  |                                     |
+|                           |           |     | If the attr_type is radio, checkbox,  |                                  
 |                           |           |     | or dropdown, the value is used as a   |
 |                           |           |     | selection list. Each item is          |
 |                           |           |     | separated by comma.                   |
