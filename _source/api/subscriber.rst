@@ -10,6 +10,8 @@ Subscriber
 
 .. contents:: Table of Contents
 
+.. _api-address:
+
 Address
 ===========
 
@@ -371,5 +373,195 @@ Get Subscription Product
 
   :>json object result: :ref:`API Result<model-common-result>`
   :>json array objects: Array of :ref:`Subscription Product<model-subscription-product>`
+
+     |br|
+
+.. _subscriber-product-change:
+
+Change Main Product
+--------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:put:: /api/v1/subs/subscriber/(long:subsId)/product/main
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    PUT /api/v1/subs/subscriber/4001887/product/main HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+    {  
+      "subsInfo":{  
+          "subsId":4001887,
+          "password":"112864",
+          "custId":10001501,
+          "billAcntId":1000190243
+      },
+      "prodInfo":{  
+          "subsId":4001887,
+          "svcDomain":5,
+          "subDomain":501,
+          "prodCd":"ngn_intl_ngo_9700",
+          "prodKdCd":"MAN",
+          "status":"A",
+          "monthlyFee":9700,
+          "thresholdYn":"Y",
+          "thresholdInfo":[  
+            {  
+                "depositId":"666154",
+                "threshold":200000
+            },
+            {  
+                "depositId":"665217",
+                "threshold":200000
+            }
+          ],
+          "optionalInfo":{}
+      }
+    }
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result":{
+          "code":0,
+          "desc":"Ok"
+      }
+    }
+
+  :param long subsId: Subscriber ID
+
+  :<json object subsInfo: :ref:`Subscriber Information<model-subscriber-entity>`. *Mendatory*
+  :<json object prodInfo: :ref:`New Subscription Product<model-subscription-product>`. *Mendatory*
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+
+     |br|
+
+.. _subscriber-product-add:
+
+Add VAS Product
+--------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:post:: /api/v1/subs/subscriber/(long:subsId)/product/vas
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    POST /api/v1/subs/subscriber/4001887/product/vas HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+    {  
+      "prod":{  
+          "subsId":4001887,
+          "svcDomain":5,
+          "subDomain":501,
+          "prodCd":"ip_center",
+          "prodKdCd":"VAS",
+          "status":"A",
+          "monthlyFee":2000,
+          "thresholdYn":"N",
+          "svcEndAt":"9999-12-31T23:59:59+0800",
+          "optionalInfo":{  
+            "cxg":"",
+            "cxsg":"",
+            "cxd":""
+          }
+      },
+      "password":"test"
+    }
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result":{
+          "code":0,
+          "desc":"Ok"
+      }
+    }
+
+  :param long subsId: Subscriber ID
+
+  :<json object prod: :ref:`New Subscription Product<model-subscription-product>`. *Mendatory*
+  :<json object password: Customer Password (Not currently used)
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+
+     |br|
+
+.. _subscriber-product-delete:
+
+Delete VAS Product
+------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:delete:: /api/v1/subs/subscriber/(long:subsId)/product/(long:subsProdId)
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    DELETE /api/v1/subs/subscriber/4001887/product/189201 HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result":{
+          "code":0,
+          "desc":"Ok"
+      }
+    }
+
+  :param long subsId: Subscriber ID
+  :param long subsProdId: Subscription Product ID
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
 
      |br|

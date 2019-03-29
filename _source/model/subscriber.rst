@@ -565,7 +565,7 @@ Subscription Product
 |                           |           |     | *Add VAS* pop-up window.              |
 +---------------------------+-----------+-----+---------------------------------------+
 | depositInfo               | array     | O   | Array of :ref:`Deposit Threshold      |
-|                           |           |     | <model-deposity-entity>` |br|         |
+|                           |           |     | <model-deposit-entity>` |br|          |
 |                           |           |     | Only Use for New Subscription         |
 +---------------------------+-----------+-----+---------------------------------------+
 

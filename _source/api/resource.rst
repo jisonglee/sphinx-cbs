@@ -10,6 +10,8 @@ Resource
 
 .. contents:: Table of Contents
 
+.. _api-number:
+
 Number
 ==========
 
