@@ -245,7 +245,8 @@ Cf. :ref:`Payment API<api-payment>`
             }
         ],
         "subsId":4001439,
-        "taxId":""
+        "taxId":"",
+        "skipTaxIf":true
     }
 
 * Payload
@@ -264,6 +265,8 @@ Cf. :ref:`Payment API<api-payment>`
         * ``desc`` : description
     * ``subsId`` : Subscriber ID
     * ``taxId`` : Tax ID
+    * ``skipTaxIf`` : Skip Tax interface if it is 'true'. Default: 'false'
+
 
 **Response**
 
