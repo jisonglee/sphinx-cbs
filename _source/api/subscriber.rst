@@ -565,3 +565,46 @@ Delete VAS Product
   :>json object result: :ref:`API Result<model-common-result>`
 
      |br|
+
+Terminate Subscription
+------------------------
+
+.. rst-class:: text-align-justify
+
+.. http:delete:: /api/v1/subs/subscriber/(long:subsId)
+
+  **Example request**:
+
+  .. sourcecode:: http
+
+    DELETE /api/v1/subs/subscriber/4001887 HTTP/1.1
+    Accept: application/json
+    Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
+
+
+  **Example response**:
+
+  .. sourcecode:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+      "result":{
+          "code":0,
+          "desc":"Ok"
+      }
+    }
+
+  :param long subsId: Subscriber ID
+
+  :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+  :reqheader Authorization: Auth token to authenticate
+
+  :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+
+  :>json object result: :ref:`API Result<model-common-result>`
+
+     |br|
