@@ -581,6 +581,8 @@ Terminate Subscription
     Accept: application/json
     Athorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..
 
+    {}
+
 
   **Example response**:
 
@@ -601,6 +603,8 @@ Terminate Subscription
   :reqheader Accept: the response content type depends on
                       :mailheader:`Accept` header
   :reqheader Authorization: Auth token to authenticate
+
+  :<json object: empty
 
   :resheader Content-Type: this depends on :mailheader:`Accept`
                             header of request
