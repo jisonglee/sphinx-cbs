@@ -5,7 +5,7 @@
 ## Authorization
 
 * [Login](authorization/login.md)
-* [Untitled](authorization/untitled.md)
+* [Group](authorization/untitled.md)
 
 ## Billing Support <a id="billing"></a>
 

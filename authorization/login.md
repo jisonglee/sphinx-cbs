@@ -1,10 +1,10 @@
 ---
-description: API reference for Login
+description: Login API
 ---
 
 # Login
 
-{% api-method method="post" host="https://example.com:8080" path="/v1/api/auth/login" %}
+{% api-method method="post" host="https://example.com" path="/v1/api/auth/login" %}
 {% api-method-summary %}
 Login
 {% endapi-method-summary %}
@@ -58,7 +58,7 @@ Password
 
 
 
-{% api-method method="post" host="http://example.com:8080" path="/v1/api/auth/refresh" %}
+{% api-method method="post" host="http://example.com" path="/v1/api/auth/refresh" %}
 {% api-method-summary %}
 Refresh Token
 {% endapi-method-summary %}
